@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Segmentation</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Customer Cluster Predictor</h2>
+    <form method="POST">
+      <input type="number" name="age" placeholder="Age" required step="any"><br>
+      <input type="number" name="income" placeholder="Income" required step="any"><br>
+      <input type="number" name="visits" placeholder="Visits" required step="any"><br>
+      <input type="number" name="satisfaction" placeholder="Satisfaction Score" required step="any"><br>
+      <button type="submit">Predict Cluster</button>
+    </form>
+    {% if cluster is not none %}
+      <div class="result">Predicted Cluster: {{ cluster }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
