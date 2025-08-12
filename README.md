@@ -1,148 +1,128 @@
-# Customer Satisfaction Analysis & Prediction System 📊
 
-![Customer Satisfaction Dashboard](images/dashboard.png) <!-- Add actual screenshot path -->
+#  Customer Satisfaction Prediction
 
-End-to-end solution for analyzing customer feedback data and predicting satisfaction levels. Includes EDA, sentiment analysis, and predictive modeling.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
+[![Python Version](https://img.shields.io/badge/Python-3.x-blue.svg)]()
 
-## Features ✨
-- Sentiment analysis of customer reviews
-- Satisfaction prediction using ML models
-- Interactive dashboards for insights
-- Topic modeling for feedback categorization
-- Automated report generation
+##  Overview
+A machine learning project aimed at predicting customer satisfaction levels using structured data. The system involves preprocessing, feature engineering, and comparison across models like Logistic Regression, Random Forest, XGBoost, and more—with insightful visualizations included.
 
-## Installation 💻
+---
 
-### Prerequisites
-- Python 3.8+
-- pip or conda
+##  Features
+-  Clean and preprocess customer data  
+-  Extract relevant features for modeling  
+-  Compare performance across models: Logistic Regression, KNN, Decision Tree, Random Forest, XGBoost  
+-  Visualize model results with confusion matrices and performance reports  
+-  Jupyter notebooks for analysis and experimentation
 
-### Setup
+---
+
+##  Table of Contents
+- [⚙️ Installation](#-installation)  
+- [🚀 Usage](#-usage)  
+- [📁 Project Structure](#-project-structure)  
+- [📊 Results](#-results)  
+- [🤝 Contributing](#-contributing)  
+- [📜 License](#-license)  
+- [📬 Contact](#-contact)
+
+---
+
+##  Installation
+
 ```bash
-# Clone repository
 git clone https://github.com/Srinithimahalakshmi/Customer_satisfaction.git
 cd Customer_satisfaction
 
-# Create virtual environment
-python -m venv custsat_env
-source custsat_env/bin/activate  # Linux/Mac
-custsat_env\Scripts\activate    # Windows
-
-# Install dependencies
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-Dataset 📁
-Customer Feedback Dataset (included in data/)
+````
 
-Contains:
+---
 
-Customer reviews (text)
+## Usage
 
-Numerical ratings (1-5 stars)
+### 1. Run Data Analysis & Training
 
-Metadata (product, date, location)
+```bash
+jupyter notebook
+```
 
-Key features:
+Explore preprocessing steps, train multiple models, and visualize results directly in the notebooks.
 
-Review text
+### 2. Execute Model Scripts
 
-Verified purchase flag
+```bash
+python train_model.py
+python evaluate_model.py
+```
 
-Product category
+Use these scripts (if they exist) to train models and generate metrics from the command line.
 
-Review date
+---
 
-Usage 🚀
-1. Data Exploration
-bash
-python src/eda.py --input data/reviews.csv --output reports/eda_report.html
-2. Sentiment Analysis
-bash
-python src/sentiment_analysis.py --input data/reviews.csv --output results/sentiment_scores.csv
-3. Model Training
-bash
-# Train satisfaction prediction model
-python src/models/train_predictor.py --data processed/clean_data.csv --model models/satisfaction_model.pkl
-4. Generate Dashboard
-bash
-python src/dashboard/app.py  # Access at http://localhost:8050
-Key Components 🔍
-Sentiment Analysis Pipeline
-Text preprocessing (cleaning, stemming)
+## Project Structure
 
-Feature extraction (TF-IDF, word embeddings)
+| File / Folder        | Description                                      |
+| -------------------- | ------------------------------------------------ |
+| `data/`              | Raw and processed customer satisfaction datasets |
+| `notebooks/`         | EDA and model experimentation via Jupyter        |
+| `src/` or `scripts/` | Scripts for preprocessing, training, evaluation  |
+| `models/`            | Saved models in pickle or joblib format          |
+| `results/`           | Generated plots, reports, and evaluation outputs |
+| `requirements.txt`   | Project dependencies                             |
+| `LICENSE`            | MIT License                                      |
 
-Sentiment classification (BERT, LSTM, or SVM)
+---
 
-Satisfaction score calculation
+## Results
 
-Prediction Models
-Model	Accuracy	F1-Score	Use Case
-XGBoost	92.4%	0.91	Overall prediction
-LSTM	89.7%	0.88	Text-based
-Ensemble	93.1%	0.92	Final deployment
-Repository Structure 📂
-text
-├── data/                   # Raw and processed data
-│   ├── raw/                # Original datasets
-│   └── processed/          # Cleaned data
-│
-├── docs/                   # Documentation
-├── images/                 # Visual assets
-│
-├── models/                 # Trained models
-│   └── satisfaction_model.pkl
-│
-├── reports/                # Analysis outputs
-│   ├── eda_report.html
-│   └── feature_importance.png
-│
-├── src/                    # Source code
-│   ├── data_processing/    # Data cleaning modules
-│   ├── visualization/      # Plotting utilities
-│   ├── models/             # ML model training
-│   ├── dashboard/          # Streamlit/PowerBI dashboard
-│   ├── sentiment_analysis.py
-│   └── predict.py          # Prediction API
-│
-├── notebooks/              # Jupyter notebooks
-│   ├── 01_Data_Exploration.ipynb
-│   └── 02_Model_Comparison.ipynb
-│
-├── requirements.txt        # Dependencies
-└── LICENSE
-Sample Visualization
-https://reports/feature_importance.png <!-- Add actual path -->
-Top factors influencing customer satisfaction
+* Summary of metrics: Accuracy, Precision, Recall, F1-Score
+* Visualization outputs: Confusion matrices and performance graphs
+  *(Customize this section with actual values and images from your results.)*
 
-How to Predict Satisfaction
-python
-from src.predict import SatisfactionPredictor
+---
 
-# Initialize predictor
-predictor = SatisfactionPredictor('models/satisfaction_model.pkl')
+## Contributing
 
-# Sample input
-customer_data = {
-    'review_text': 'Product exceeded expectations with fast shipping',
-    'rating': 5,
-    'product_category': 'electronics'
-}
+We welcome your contributions! Ways you can help:
 
-# Make prediction
-prediction = predictor.predict(customer_data)
-print(f"Satisfaction Probability: {prediction['satisfaction_prob']:.2%}")
-Business Applications 💼
-Identify dissatisfied customers in real-time
+* Improve feature engineering or add new ones
+* Optimize model performance or try new algorithms
+* Enhance documentation or visual outputs
+* Add CLI tools or a simple web interface for predictions
 
-Prioritize product improvement areas
+**How to contribute**:
 
-Track satisfaction trends over time
+1. Fork the repository
+2. Create a branch: `git checkout -b feature/YourFeature`
+3. Make changes & commit: `git commit -m "Add feature..."`
+4. Push and open a Pull Request
 
-Automate customer service routing
+---
 
-Measure impact of satisfaction initiatives
+## License
 
-Contributors 👥
-Srinithi Mahalakshmi
-https://img.shields.io/badge/LinkedIn-Connect-blue
-https://img.shields.io/badge/GitHub-Follow-lightgrey
+This project is licensed under the **MIT License**—see the [LICENSE](LICENSE) file for more details.
+
+---
+
+## Contact
+
+👤 **Maintainer**: Srinithi Mahalakshmi
+✉️ **Email**: [srinithiarumugam2003@gmail.com]
+🔗 **GitHub**: [Srinithimahalakshmi](https://github.com/Srinithimahalakshmi)
+
+---
+
+⭐ *If you like this project, a star ⭐ would be much appreciated!*
+
+```
+
+---
+
+Let me know if you'd like to tweak it further—add model-specific metrics, include sample screenshots, or insert a live demo link—I'm here to help!
+::contentReference[oaicite:0]{index=0}
+```
